@@ -1,0 +1,15 @@
+
+<ul class='slider'>
+  {% for item in items %}
+  <li class='slider__slide slide' style="--index: {{ item.id }}">
+    <div class='slide__content'>
+      <h2 class='slide__title'>"{{ item.name }}"</h2>
+      <p class='slide__description'> {{ item.description }}</p>
+      {% if item.link %}
+      <a href="{{ item.link }}" class="slide__link" target="_blank">Check it out!</a>
+      {% endif %}
+    </div>
+    <img src="{{ item.img }}" alt="{{ item.name }}" class="slide__image"  loading="lazy" />
+  </li>
+  {% endfor %}
+</ul>

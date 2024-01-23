@@ -1,0 +1,47 @@
+ul.cloud {
+  list-style: none;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+  gap:var(--gap);
+  padding: 0;
+  margin: 0;  
+}
+
+ul.cloud a {
+  --size: 4;
+  color: var(--secondary-font-color);
+  font-size: calc(var(--size) * 0.25rem + 0.5rem);
+  display: block;
+  position: relative;
+  text-decoration: none;
+  /* opacity: calc((15 - (9 - var(--size))) / 10); */
+
+  background:color-mix(in lch longer hue, var(--secondary-color) 90%, var(--primary-color) calc((var(--size) + 1) * 2%));
+  border-radius: calc(var(--size) * 20 * 1%);
+  padding: var(--gap);
+}
+
+ul[data-show-value] a::after {
+  content: " (" attr(data-weight) ")";
+  font-size: 1rem;
+}
+
+ul.cloud a:focus {
+  outline: 1px dashed;
+}
+
+@media print {
+  ul.cloud a {
+    color: var(--print-font-color);
+    background-color: var(--print-color);
+    opacity: 1;
+    padding: calc(var(--gap) / 4);
+  }
+
+  ul.cloud a::before {
+    content: none;
+  }
+
+}

@@ -1,0 +1,240 @@
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+ul {
+  list-style-type: none;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p {
+  max-width: 60ch;
+}
+
+h1,
+h2,
+h3 {
+  font-weight: 900;
+}
+
+h1 {
+  font-size: 5rem;
+}
+
+h2 {
+  font-size: 3rem;
+}
+
+h3 {
+  font-size: 2rem;
+}
+
+:host {
+  --chart-outer-radius: 50%;
+  --chart-width: 18%;
+  --chart-inner-radius: calc(var(--chart-outer-radius) - var(--chart-width));
+
+  --border-color:#333;
+
+  width: clamp(10vw, 100%, 80vw);
+  height: 100%;
+
+  display: flex;
+  flex-direction: column;
+  gap: var(--gap);
+  justify-content: center;
+  align-items: stretch;
+}
+
+.legend {
+  display: flex;
+  flex-direction: row;
+  direction: ltr;
+
+  mask-image: linear-gradient(to bottom, white, transparent 99%);
+}
+
+.legend-item {
+  flex: 1;
+  border-left: 1px solid var(--border-color);
+  border-bottom: 1px solid var(--border-color);
+  text-align: center;
+  background-color: var(--secondary-color); 
+  color: var(--secondary-font-color);
+  position: relative;
+  padding: var(--gap);
+  padding-block: calc(var(--gap)) calc(var(--gap) * 4);
+  mix-blend-mode: difference;
+  color:var(--secondary-font-color);
+
+  transform-origin: 0 100%;
+  transform: translateY(200%);
+  animation: legend-item linear;
+  animation-timeline: view();
+  animation-range-start: entry calc(var(--idx) * 50px);
+  animation-range-end: cover 25%;
+  animation-fill-mode: forwards;
+}
+
+.legend-item::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  border-top: calc(var(--gap)) solid color-mix(
+    in oklch longer hue,
+    var(--secondary-color),
+    var(--primary-color) calc((var(--idx) + 1) * 10%)
+  );
+  filter:saturate(2);
+}
+
+.legend-item:last-of-type {
+  border-right: 1px solid var(--border-color);
+}
+
+.chart {
+  position: relative;
+  width: calc(var(--chart-outer-radius) * 2);
+  aspect-ratio: 1;
+  border-radius: 50%;
+  border-color: var(--border-color);
+  border-style: solid;
+  background-color: var(--border-color);
+
+  animation: chart linear;
+  animation-timeline: view();
+  animation-range-start: entry;
+  animation-range-end: cover 50%;
+  animation-fill-mode: forwards;
+}
+
+.chart-item {
+  position: absolute;
+  width: calc(var(--chart-outer-radius) * 2);
+  aspect-ratio: 1;
+  border-radius: 50%;
+  background-color: var(--chart-item-color);
+
+  background-color: color-mix(
+    in oklch longer hue,
+    var(--secondary-color),
+    var(--primary-color) calc((var(--idx) + 1) * 10%)
+  );
+  filter:saturate(2);
+
+  --radius: calc(3 * var(--chart-outer-radius) - 2px);
+  --center: 50%;
+  --border-size:.5deg;
+
+  --end-angle: calc(var(--start-angle) + 360deg * (var(--percentage) / 100));
+  --mid-angle: calc((var(--start-angle) + var(--end-angle)) / 2);
+
+  --adjusted-start-angle: calc(var(--start-angle) + var(--border-size) / 2);
+  --adjusted-end-angle: calc(var(--end-angle) - var(--border-size) / 2);
+
+
+  --start-point-x: calc(
+    var(--center) + var(--radius) * cos(var(--adjusted-start-angle)) / 2
+  );
+  --start-point-y: calc(
+    var(--center) + var(--radius) * sin(var(--adjusted-start-angle)) / 2
+  );
+
+  --mid-point-x: calc(
+    var(--center) + var(--radius) * cos(var(--mid-angle)) / 2
+  );
+  --mid-point-y: calc(
+    var(--center) + var(--radius) * sin(var(--mid-angle)) / 2
+  );
+
+  --end-point-x: calc(
+    var(--center) + var(--radius) * cos(var(--adjusted-end-angle)) / 2
+  );
+  --end-point-y: calc(
+    var(--center) + var(--radius) * sin(var(--adjusted-end-angle)) / 2
+  );
+
+  --chart-item-polygon: polygon(
+    var(--center) var(--center),
+    var(--start-point-x) var(--start-point-y),
+    var(--mid-point-x) var(--mid-point-y),
+    var(--end-point-x) var(--end-point-y)
+  );
+
+  clip-path: var(--chart-item-polygon);
+
+  animation: chart-item linear;
+  animation-timeline: view();
+  animation-range-start: entry;
+  animation-range-end: cover 50%;
+  animation-fill-mode: forwards;
+}
+
+.chart::after {
+  content: attr(data-title);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: absolute;
+  width: calc(var(--chart-inner-radius) * 2);
+  inset: var(--chart-width);
+  aspect-ratio: 1;
+  border-radius: 50%;
+  background-color: var(--secondary-color);
+  border: 2px solid var(--border-color);
+  font-size: 2rem;
+  font-weight: 900;
+  color: var(--secondary-font-color);
+
+  animation: chart linear;
+  animation-timeline: view();
+  animation-range-start: entry;
+  animation-range-end: cover 50%;
+  animation-fill-mode: forwards;
+}
+
+@keyframes legend-item {
+  0%,
+  1% {
+    transform: translateY(200%);
+  }
+
+  50%,
+  100% {
+    transform: scaleY(100%);
+  }
+}
+
+@keyframes chart-item {
+  0%,
+  1% {
+    transform: rotate(0deg);
+  }
+
+  50%,
+  100% {
+    transform: rotate(180deg);
+  }
+}
+@keyframes chart {
+  0%,
+  1% {
+    opacity: 0;
+    border-width: 0px;
+  }
+
+  50%,
+  100% {
+    opacity: 1;
+    border-width: 2px;
+  }
+}

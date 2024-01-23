@@ -1,8 +1,157 @@
-<html>
+<!DOCTYPE html>
+<!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
+<!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
+<!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->
+<!--[if gt IE 8]>      <html class="no-js"> <!--<![endif]-->
+<html lang="en-US">
   <head>
-    <title>Hello...</title>
+    <meta charset="utf-8" />
+    <meta name="description" content="Personal landing page" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <title>Denis Suleimanov</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link
+      rel="apple-touch-icon"
+      sizes="180x180"
+      href="./assets/images/favicon/apple-touch-icon.png"
+    />
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="32x32"
+      href="./assets/images/favicon/favicon-32x32.png"
+    />
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="16x16"
+      href="./assets/images/favicon/favicon-16x16.png"
+    />
+    <link rel="manifest" href="./site.webmanifest" />
+    <link rel="stylesheet" href="./style.css" media="screen" />
+    <link rel="stylesheet" href="./print.css" media="print" />
+
+    <script defer src="./main.js" type="module"></script>
   </head>
-  <body>
-    ...world
+  <body class="work" data-mode="work">
+    <!--[if lt IE 7]>
+      <p class="browsehappy">
+        You are using an <strong>outdated</strong> browser. Please
+        <a href="#">upgrade your browser</a> to improve your experience.
+      </p>
+    <![endif]-->
+    <mode-switcher id="mode-switcher" class="mode-switcher"></mode-switcher>
+
+    <header class="header">
+      <section class="header__content">
+        <h1 class="header__name" data-translate="work.full_name">
+          Denis Suleimanov
+        </h1>
+        <p class="header__position" data-translate="work.position">
+          Software developer and not only...
+        </p>
+      </section>
+      <div class="header__animation-container">
+        <svg class="header__arrow" height="25" width="50">
+          <polygon points="0,0 25,10 50,0 25,25" fill="currentColor" />
+        </svg>
+      </div>
+      <img
+        src="../../assets/images/work/hero.webp"
+        loading="lazy"
+        alt="hero photo"
+        class="header__image"
+      />
+    </header>
+
+    <main class="main">
+      <social-buttons class="social-buttons"></social-buttons>
+      <section class="main__portfolio portfolio">
+        <my-cards class="portfolio__cards" data-mode="work"></my-cards>
+        <my-cards class="portfolio__cards" data-mode="life"></my-cards>
+      </section>
+      <section class="main__skills skills">
+        <my-tags class="skills__cloud"></my-tags>
+      </section>
+      <section class="main__statistic statistic">
+        <chart-pie
+          id="skills-percentage"
+          title="Skills"
+          with-legend="true"
+        ></chart-pie>
+      </section>
+      <section class="main__about about">
+        <time-line class="timeline" data-mode="work"></time-line>
+        <time-line class="timeline" data-mode="life"></time-line>
+      </section>
+    </main>
+
+    <svg
+      class="footer"
+      xmlns="http://www.w3.org/2000/svg"
+      xmlns:xlink="http://www.w3.org/1999/xlink"
+      viewBox="0 24 150 28"
+      preserveAspectRatio="none"
+      shape-rendering="auto"
+    >
+      <defs>
+        <path
+          id="wave"
+          d="M-160 44c30 0 58-18 88-18s 58 18 88 18 58-18 88-18 58 18 88 18 v44h-352z"
+          fill="currentColor"
+        />
+      </defs>
+      <g class="waves">
+        <use xlink:href="#wave" x="48" y="0" class="wave" />
+        <use xlink:href="#wave" x="48" y="3" class="wave" />
+        <use xlink:href="#wave" x="48" y="5" class="wave" />
+        <use xlink:href="#wave" x="48" y="7" class="wave" />
+      </g>
+    </svg>
+
+    <section data-mode="pdf" data-role="cv">
+      <aside class="brief">
+        <section class="profile">
+          <img
+            class="profile__photo"
+            src="./assets/images/projects/gonesis.webp"
+            alt="my profile avatar"
+          />
+          <h1 class="profile__name">Denis Suleimanov</h1>
+          <span class="profile__position">Software Developer</span>
+        </section>
+        <section class="contacts">
+          <h2 class="contacts__title">Contacts</h2>
+          <social-buttons class="social-buttons"></social-buttons>
+        </section>
+        <section class="quote">
+          <h2 class="quote__title">Creed</h2>
+          <blockquote class="quote__text">
+            <p class="quote__creed">
+              There is no ignorance, there is only code
+            </p>
+          </blockquote>
+          <footer class="quote__author">
+            — Odan-Urr, <cite>Jedi code</cite>
+          </footer>
+        </section>
+      </aside>
+      <section class="info">
+        <section class="education">
+          <h2 class="education__title">Education</h2>
+          <ul>
+            <li>1 u</li>
+            <li>2 u</li>
+          </ul>
+        </section>
+        <section class="experience">
+          <h2 class="experience__title">Skills</h2>
+          <ul>
+            <li>1 u</li>
+            <li>2 u</li>
+          </ul>
+        </section>
+      </section>
+    </section>
   </body>
 </html>

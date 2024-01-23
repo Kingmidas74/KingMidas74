@@ -1,0 +1,22 @@
+<div class="mode-switcher">
+  <label for="mode-switcher">
+    <svg class="mode-switcher__work-icon">
+      <title>{{ on.title }}</title>
+      <desc>{{ on.description }}</desc>
+      <use href="{{ on.img }}"></use>
+    </svg>
+  </label>
+  <input
+    class="mode-switcher__toggle"
+    id="mode-switcher"
+    type="checkbox"
+  />
+  <label class="mode-switcher__button" for="mode-switcher"></label>
+  <label for="mode-switcher">
+    <svg class="mode-switcher__life-icon">
+      <title>{{ off.title }}</title>
+      <desc>{{ off.description }}</desc>
+      <use href="{{ off.img }}"></use>
+    </svg>
+  </label>
+</div>

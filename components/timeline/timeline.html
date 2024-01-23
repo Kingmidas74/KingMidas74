@@ -1,0 +1,22 @@
+<ul class="timeline-events">
+  {% for item in items %}
+  <li
+    class="timeline-event"
+    style="
+      --timeline-event-level: {{ item.level }}; 
+      --timeline-event-order: {{ item.order }}; 
+      --timeline-event-years: {{ item.yearsCount }};
+      --timeline-event-color: {{ item.color }};
+      "
+  >
+    <h2>{{ item.years }}</h2>
+    <h3>{{ item.title }}</h3>
+    <h4>{{ item.description }}</h4>
+  </li>
+  {% endfor %}
+</ul>
+<ul class="timeline-years">
+  {% for legend in legends %}
+  <li class="timeline-year">{{ legend }}</li>
+  {% endfor %}
+</ul>

@@ -1,0 +1,152 @@
+@import "./styles/colors.css";
+@import "./styles/default.css";
+
+@page {
+  size: A4;
+  margin: 0;
+}
+
+*, *:before, *:after {
+  -webkit-print-color-adjust: exact;
+  print-color-adjust: exact;
+}
+
+html,
+body {
+  --page-cnt: 1;
+  width: 210mm;
+  height: calc(297mm * var(--page-cnt));
+
+  --gap: calc(1rem / 2);
+
+  --accent-color:var(--print-font-color);
+}
+
+body > * {
+  display: none;
+}
+
+*[data-role="cv"] {
+  display: block;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-flow: row nowrap;
+}
+
+.brief {
+  border: 1px dashed var(--accent-color);
+  flex: 0 0 25ch;
+}
+
+.info {
+  border: 1px dashed var(--accent-color);
+  flex: 1 1 100%;
+  padding: var(--gap);
+}
+
+h2 {
+  color: var(--primary-font-color);
+  margin-block: calc(var(--gap) * 2);
+  text-transform: uppercase;
+  font-size: 1em;
+}
+
+.profile {
+  background: var(--secondary-color);
+  color: var(--secondary-font-color);
+
+  padding: var(--gap);
+  position: relative;
+
+  display: flex;
+  flex-flow: column;
+  align-items: center;
+  justify-content: space-evenly;
+  gap: var(--gap);
+
+  z-index: 2;
+}
+
+.profile::after {
+  --height: 30px;
+  content: "";
+  position: absolute;
+  background: inherit;
+  width: 100%;
+  height: var(--height);
+  bottom: calc((-1) * var(--height) / 2);
+  left: 0;
+  transform: skewY(-5deg);
+  z-index: -1;
+}
+
+.profile__photo {
+  max-width: 80%;
+  aspect-ratio: 1;
+  object-fit: cover;
+  border-radius: 50%;
+}
+
+.profile__name {
+  font-size: 1.5em;
+  font-weight: normal;
+}
+
+.profile__position {
+  font-size: 1.2em;
+  font-weight: normal;
+}
+
+.contacts {
+  margin-block-start: calc(var(--gap) * 6);
+  padding-inline: var(--gap);
+}
+
+.quote {
+  padding: var(--gap);
+}
+
+.quote__text {
+  font-size: 1em;
+  font-style: italic;
+}
+
+.quote__author {
+  font-size: .8em;
+  font-weight: bold;
+  text-align: right;
+}
+
+.quote__creed {
+  display: flex;
+  flex-flow: row nowrap;
+  position: relative;
+  padding-inline: calc(3 * var(--gap));
+}
+
+.quote__creed::before {
+  position: absolute;
+  left: 0;
+  top:25%;
+  content: "\201C";
+  font-size: .8em;
+  font-weight: bold;
+  text-align: right;
+  display: block;
+  font-size: 2em;
+  font-weight: bold;
+}
+
+.quote__creed::after {
+  position: absolute;
+  right: 0;
+  top:25%;
+  content: "\201D";
+  font-size: .8em;
+  font-weight: bold;
+  text-align: right;
+  display: block;
+  font-size: 2em;
+  font-weight: bold;
+}

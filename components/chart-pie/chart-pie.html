@@ -1,0 +1,22 @@
+<ul class="chart" data-title="{{ title }}">
+  {% for item in items %}
+  <li
+    class="chart-item"
+    style="
+      --start-angle: {{ item.startAngle }}deg;
+      --percentage: {{ item.percentage }};
+      --idx: {{ item.idx }};
+    "
+  ></li>
+  {% endfor %}
+</ul>
+{% if legend %}
+<ul class="legend">
+  {% for item in items %}
+  <li class="legend-item" style="--idx: {{ item.idx }};">
+    <p>{{ item.title }}</p>
+    <p>{{ item.percentage }}%</p>
+  </li>
+  {% endfor %}
+</ul>
+{% endif %}

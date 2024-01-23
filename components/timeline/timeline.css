@@ -1,0 +1,128 @@
+:host {
+  --year-width: 200px;
+
+  display: flex;
+  flex-flow: column nowrap;
+
+  position: relative;
+  overflow-x: auto;
+
+  align-self: center;
+  width: 100%;
+}
+
+:host::-webkit-scrollbar {
+  display: none;
+}
+
+*,
+*:before,
+*:after {
+  box-sizing: border-box;
+}
+
+/* Timeline - Years */
+.timeline-years {
+  display: flex;
+  flex-flow: row nowrap;
+  align-items: stretch;
+
+  flex: 1;
+
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  white-space: nowrap;
+}
+
+.timeline-year {
+  flex: 0 0 var(--year-width);
+  color: var(--primary-font-color);
+  font-size: 11px;
+  text-align: center;
+  border-top: 1px dashed #ccc;
+  margin-top: var(--gap);
+}
+
+/* Timeline - Events */
+.timeline-events {
+  display: flex;
+  flex-flow: row nowrap;
+
+  padding: 0;
+  list-style: none;
+  white-space: nowrap;
+}
+
+.timeline-event {
+  --timeline-event-level: 1;
+  --timeline-event-years: 1;
+  --timeline-event-color: hsla(0, 0%, 0%, 0.5);
+  --level-step: calc(var(--gap) * 2 / 3);
+
+  --current-level: calc(var(--level-step) * var(--timeline-event-level));
+  --span-years: calc(var(--year-width) * var(--timeline-event-years));
+
+  flex: 0 0 var(--span-years);
+  margin-bottom: var(--current-level);
+
+  position: relative;
+  display: flex;
+  flex-flow: column;
+  align-items: flex-start;
+}
+
+.timeline-event:before {
+  position: absolute;
+  left: 0;
+  bottom: calc(var(--gap) * -1);
+  height: var(--level-step);
+  border-radius: var(--level-step);
+  content: "";
+  width: calc(var(--year-width) * var(--timeline-event-years));
+  background: color-mix(
+    in oklch longer hue,
+    var(--secondary-color),
+    var(--primary-color) calc((var(--timeline-event-years) + 1) * 10%)
+  );
+}
+
+.timeline-event h3 {
+  color: var(--primary-font-color);
+}
+
+.timeline-event:first-child:before {
+  border-radius: 0 var(--level-step) var(--level-step) 0;
+}
+
+.timeline-event:first-child {
+  align-items: flex-end;
+  padding-right: calc(2 * var(--gap));
+}
+
+.timeline-event:last-child {
+  align-items: flex-start;
+  padding-left: calc(2 * var(--gap));
+}
+
+.timeline-event:last-child:before {
+  border-radius: var(--level-step) 0 0 var(--level-step);
+}
+
+.timeline-events h2,
+.timeline-events h3,
+.timeline-events h4 {
+  margin: 0 0 1px 0;
+  font-weight: normal;
+  font-size: 11px;
+}
+
+.timeline-events h2 {
+  color: var(--primary-font-color);
+  text-transform: uppercase;
+}
+
+.timeline-events h4 {
+  color: var(--primary-font-color);
+  font-style: italic;
+}

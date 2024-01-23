@@ -1,0 +1,109 @@
+.mode-switcher {
+  --icon-width: 18px;
+
+  display: flex;
+  flex-flow: row;
+  align-items: center;
+
+  cursor: pointer;
+  gap: calc(var(--gap) / 4);
+
+  position: absolute;
+  top: var(--gap);
+  right: var(--gap);
+}
+
+.mode-switcher__work-icon {
+  position: relative;
+  width: var(--icon-width);
+  height: var(--icon-width);
+  fill: rgba(156, 174, 192, 0.27);
+  cursor: pointer;
+}
+.mode-switcher__life-icon {
+  position: relative;
+  width: var(--icon-width);
+  height: var(--icon-width);
+  fill: rgba(156, 174, 192, 0.27);
+  cursor: pointer;
+}
+
+.mode-switcher__toggle {
+  display: none;
+}
+.mode-switcher__toggle,
+.mode-switcher__toggle:after,
+.mode-switcher__toggle:before,
+.mode-switcher__toggle *,
+.mode-switcher__toggle *:after,
+.mode-switcher__toggle *:before,
+.mode-switcher__toggle + .mode-switcher__button {
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+}
+.mode-switcher__toggle::-moz-selection,
+.mode-switcher__toggle:after::-moz-selection,
+.mode-switcher__toggle:before::-moz-selection,
+.mode-switcher__toggle *::-moz-selection,
+.mode-switcher__toggle *:after::-moz-selection,
+.mode-switcher__toggle *:before::-moz-selection,
+.mode-switcher__toggle + .mode-switcher__button::-moz-selection {
+  background: none;
+}
+.mode-switcher__toggle::selection,
+.mode-switcher__toggle:after::selection,
+.mode-switcher__toggle:before::selection,
+.mode-switcher__toggle *::selection,
+.mode-switcher__toggle *:after::selection,
+.mode-switcher__toggle *:before::selection,
+.mode-switcher__toggle + .mode-switcher__button::selection {
+  background: none;
+}
+.mode-switcher__toggle + .mode-switcher__button {
+  outline: 0;
+  display: inline-block;
+  width: calc(2 * var(--icon-width));
+  height: var(--icon-width);
+  position: relative;
+  cursor: pointer;
+  border: 2px solid #333;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}
+.mode-switcher__toggle + .mode-switcher__button:after,
+.mode-switcher__toggle + .mode-switcher__button:before {
+  position: relative;
+  display: block;
+  content: "";
+  width: 50%;
+  height: 100%;
+}
+.mode-switcher__toggle + .mode-switcher__button:after {
+  left: 0;
+}
+.mode-switcher__toggle + .mode-switcher__button:before {
+  display: none;
+}
+.mode-switcher__toggle:checked + .mode-switcher__button:after {
+  left: 50%;
+}
+
+.mode-switcher__toggle + .mode-switcher__button {
+  padding: 2px;
+  -webkit-transition: all 0.2s ease;
+  transition: all 0.2s ease;
+  border: 2px solid rgba(156, 174, 192, 0.27);
+  border-radius: 2em;
+}
+.mode-switcher__toggle + .mode-switcher__button:after {
+  -webkit-transition: all 0.2s ease;
+  transition: all 0.2s ease;
+  background: rgba(156, 174, 192, 0.27);
+  content: "";
+  border-radius: 1em;
+}
+.mode-switcher__toggle:checked + .mode-switcher__button:after {
+  left: 50%;
+}

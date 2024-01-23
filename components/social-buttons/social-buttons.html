@@ -1,0 +1,27 @@
+<ul class="social-buttons">
+  {% for item in items %}
+  <li class="social-button">
+    <a
+      class="social-button__link"
+      href="{{ item.link }}"
+      target="_blank"
+    >
+      <svg class="social-button__icon">
+        <title>{{ item.title }}</title>
+        <desc>{{ item.description }}</desc>
+        <use href="{{ item.icon }}"></use>
+      </svg>
+      <span class="social-button__text">{{ item.text }}</span>
+    </a>
+  </li>
+  {% endfor %}
+  <li class="social-button">
+    <a class="social-button__link" id="pdf">
+      <svg class="social-button__icon">
+        <title>PDF</title>
+        <desc>Download as PDF</desc>
+        <use href="./assets/images/sprite.svg#pdfIcon"></use>
+      </svg>
+    </a>
+  </li>
+</ul>

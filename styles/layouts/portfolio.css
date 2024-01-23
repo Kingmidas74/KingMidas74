@@ -1,0 +1,40 @@
+.portfolio {
+    display: flex;
+    flex-direction: column;
+    align-items: stretch;
+    justify-content: center;
+    gap: var(--gap);
+
+    color: var(--primary-font-color);
+    padding:calc(var(--gap) / 10);;
+}
+
+@supports (animation-timeline: view()) {
+  .portfolio {
+    animation: portfolio linear forwards;
+    animation-timeline: view();
+    animation-range: exit 10vh;
+  }
+}
+
+.portfolio__cards {
+    flex:1;
+}
+
+
+
+@keyframes portfolio {
+    25% {
+      opacity: 1;
+      background-color: rgba(0,0,0,1);
+      filter: blur(0px);
+    }
+  
+    85%,
+    100% {
+      opacity: 0;
+      background-color: rgba(0,0,0,0);
+      scale: 1.5;
+      filter: blur(10px);
+    }
+  }

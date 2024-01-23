@@ -1,0 +1,27 @@
+:root {
+  --primary-color: hsl(0, 0%, 100%);
+  --primary-font-color: hsl(0, 0%, 0%);
+
+  --secondary-color:oklch(71.88% 0.078 247.79);
+  --secondary-font-color: oklch(34.85% 0 0);
+
+  --accent-color: oklch(80.02% 0.105 160.43);
+  --accent-font-color: hsl(0, 0%, 0%);
+
+  --print-color: hsl(0, 0%, 100%);
+  --print-font-color: hsl(0, 0%, 0%);
+  
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --primary-color: hsl(0, 0%, 0%);
+    --primary-font-color: hsl(0, 0%, 100%);
+  
+    --secondary-color: hsl(287, 47%, 33%);
+    --secondary-font-color: hsl(0, 0%, 100%);
+  
+    --accent-color: hsl(92, 24%, 36%);
+    --accent-font-color: hsl(0, 0%, 100%);
+  }
+}

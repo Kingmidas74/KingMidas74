@@ -1,0 +1,146 @@
+.header {
+  /* Positioning */
+  position: relative;
+
+  /* Layout */
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: var(--gap);
+  height: 100dvh;
+
+  /* Visual */
+  color: var(--primary-color);
+  background-color: var(--primary-color);
+}
+
+@supports (animation-timeline: view()) {
+  .header {
+    animation: header linear forwards;
+    animation-timeline: view();
+    animation-range: exit;
+  }
+}
+
+.header__image {
+  /* Positioning */
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: -1;
+
+  /* Layout */
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center center;
+}
+
+.header__name {
+  margin-bottom: 0.1rem;
+  letter-spacing: 0.25rem;
+  mix-blend-mode: difference;
+}
+
+.header__position {
+  border-top: solid 1px var(--prmimary-color);
+  line-height: 1.5rem;
+  letter-spacing: 0.015rem;
+  mix-blend-mode: difference;
+  opacity: 0.8;
+}
+
+.header > .social-buttons {
+  /* Positioning */
+  position: absolute;
+  bottom: var(--gap);
+
+  /* Layout */
+  display: flex;
+}
+
+.header__animation-container {
+  position: fixed;
+  color: rgba(255, 255, 255, 1);
+  cursor: pointer;
+
+  transform: translateY(0%);
+  opacity: 1;
+
+  animation: jump 1s infinite;
+
+  bottom: var(--gap);
+}
+
+.header__arrow {
+  animation: fade-out linear;
+  animation-timeline: scroll(root);
+
+  animation-range-start: exit 200px;
+  animation-range-end: exit 100vh;
+}
+
+.header__arrow--hidden {
+  transition: color 0.5s ease-in-out, transform 0.5s ease-in-out;
+  color: rgba(255, 255, 255, 0);
+  transform: translateY(-100%);
+}
+
+.header__content {
+  width: 100%;
+  display: flex;
+  flex-flow: column;
+  align-items: center;
+  padding-block: var(--gap);
+  opacity: 1;
+
+  background-color: rgba(55, 55, 55, 0.4);
+  backdrop-filter: blur(5px);
+}
+
+@keyframes jump {
+  0% {
+    opacity: 1;
+    filter: blur(0);
+    bottom: var(--gap);
+  }
+  50% {
+    opacity: 0.5;
+    filter: blur(5p);
+    bottom: calc(var(--gap) * 1.5);
+  }
+  100% {
+    opacity: 1;
+    filter: blur(0);
+    bottom: var(--gap);
+  }
+}
+
+@keyframes fade-out {
+  0% {
+    opacity: 1;
+    color: rgba(255, 255, 255, 1);
+  }
+
+  100% {
+    opacity: 0;
+    color: rgba(255, 255, 255, 0);
+  }
+}
+
+@keyframes header {
+  25% {
+    opacity: 1;
+    background-color: rgba(0,0,0,1);
+    filter: blur(0px);
+  }
+
+  85%,
+  100% {
+    opacity: 0;
+    background-color: rgba(0,0,0,0);
+    scale: 1.5;
+    filter: blur(10px);
+  }
+}

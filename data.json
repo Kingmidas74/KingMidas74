@@ -1,0 +1,149 @@
+{
+  "contacts": [
+    {
+      "link": "https://github.com/kingmidas74",
+      "icon": "./assets/images/sprite.svg#githubIcon",
+      "title": "GitHub",
+      "description": "Visit my GitHub profile",
+      "text": "Kingmidas74"
+    },
+    {
+      "link": "https://www.linkedin.com/in/denis-suleimanov/",
+      "icon": "./assets/images/sprite.svg#linkedinIcon",
+      "title": "LinkedIn",
+      "description": "Visit my LinkedIn profile",
+      "text": "/in/denis-suleimanov"
+    },
+    {
+      "link": "https://t.me/DenisSuleimanov",
+      "icon": "./assets/images/sprite.svg#tgIcon",
+      "title": "Telegram",
+      "description": "Write me via Telegram",
+      "text": "@DenisSuleimanov"
+    },
+    {
+      "link": "mailto:denis@suleimanov.pro",
+      "icon": "./assets/images/sprite.svg#mailIcon",
+      "title": "Gmail",
+      "description": "Write me via email",
+      "text": "denis@suleimanov.pro"
+    }
+  ],
+
+  "work": {
+    "full_name": "Denis Suleimanov",
+    "position": "sub header",
+
+    "timeline": {
+      "items": [
+        {
+          "title": "Growing",
+          "description": "I was",
+          "years": "1992 - 2015",
+          "level": 0,
+          "yearsCount": 1
+        },
+        {
+          "title": "Megarender",
+          "description": "Junior to Middle Software Developer",
+          "years": "2016 - 2018",
+          "level": 1,
+          "yearsCount": 3
+        },
+        {
+          "title": "Manzanica",
+          "description": "Software Developer",
+          "years": "2019-2020",
+          "level": 2,
+          "yearsCount": 1
+        },
+        {
+          "title": "Kaspersky",
+          "description": "Software Developer",
+          "years": "2020-2021",
+          "level": 1,
+          "yearsCount": 2
+        },
+        {
+          "title": "Unlimint",
+          "description": "Software Developer",
+          "years": "2022-2024",
+          "level": 2,
+          "yearsCount": 3
+        }
+      ],
+      "legends": [2015, 2016, 2017, 2018, 2019, 2020, 2021, 2022, 2023, 2024]
+    },
+
+    "cards": [
+      {
+        "img": "./assets/images/projects/cohengardens.webp",
+        "name": "Cohen garders",
+        "description": "The newspaper of the Wislemn. Do u want to know more about the Wislemn? Read the Cohen Gardens!",
+        "link": "https://cohengardens.com"
+      },
+      {
+        "img": "./assets/images/projects/gonesis.webp",
+        "name": "Gonesis",
+        "description": "A simple evolution simulator",
+        "link": "https://gonesis.kingmidas.dev"
+      },
+      {
+        "img": "./assets/images/projects/nclient.webp",
+        "name": "NClient",
+        "description": "Automatic type-safe .NET HTTP clientA simple evolution simulator"
+      }
+    ]
+  },
+  "life": {
+    "full_name": "Midas",
+    "position": "Writer? Fighter? Traveller? Yes!",
+
+    "timeline": {
+      "items": [
+        {
+          "title": "Growing up",
+          "description": "I was",
+          "years": "1992 - 2009",
+          "level": 0,
+          "yearsCount": 1
+        },
+        {
+          "title": "Studying",
+          "description": "I was",
+          "years": "2010-2015",
+          "level": 1,
+          "yearsCount": 3
+        },
+        {
+          "title": "event2",
+          "description": "now",
+          "years": "2016 - 2023",
+          "level": 1,
+          "yearsCount": 3
+        },
+        {
+          "title": "event3",
+          "description": "one day",
+          "years": "2024",
+          "level": 0,
+          "yearsCount": 1
+        }
+      ],
+      "legends": [2009, 2010, "...", 20115, 2016, "...", 2023, 2024]
+    },
+
+    "cards": [
+      {
+        "img": "./assets/images/life/colosseo.png",
+        "name": "Rome",
+        "description": "A beautiful city"
+      },
+      {
+        "img": "./assets/images/life/jedi.png",
+        "name": "Saberfigthing",
+        "description": "Sort of art-fencing"
+      }
+    ]
+  }
+}

@@ -1,0 +1,56 @@
+.main {
+  /* Positioning */
+  width: clamp(var(--grid-min-width), calc(100vw - 2 * var(--gap)), var(--grid-max-width));
+  height: 100%;
+  margin: 0 auto;
+  
+  /* Layout */
+  --grid-col-count: 4;
+  --grid-row-count: 4;
+  --grid-min-width: var(--width-breakpoint); /* see container query */
+  /* --grid-max-width: calc(var(--grid-min-width) * 2); */
+  --grid-max-width: 100%;
+
+  display: grid;
+  grid-template-rows: fit-content, repeat(var(--grid-row-count)-1, 1fr);
+  grid-template-columns: repeat(var(--grid-col-count), 1fr);
+  grid-template-areas: "portfolio portfolio portfolio portfolio" "skills statistic statistic none" "about about about about" "social social social social";
+  gap: calc(2 * var(--gap));
+
+  /* Visual */
+
+  z-index: 5;
+}
+
+.main__portfolio {
+  grid-area: portfolio;
+  position: relative;
+
+  height: 100svh;
+}
+
+.main__skills {
+  grid-area: skills;
+  position: relative;
+
+}
+
+.main__statistic {
+  grid-area: statistic;
+  position: relative;
+}
+
+.main__about {
+  grid-area: about;
+  position: relative;
+}
+
+@container body (width <= 600px) {
+  .main {
+    --grid-row-count: 5;
+    --grid-min-width: 100vw;
+    --grid-max-width: 100vw;
+
+    grid-template-areas: "portfolio portfolio portfolio portfolio" "skills skills skills skills" "statistic statistic statistic statistic" "about about about about" "social social social social";
+  }
+}

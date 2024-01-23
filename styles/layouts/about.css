@@ -1,0 +1,11 @@
+.about {
+    /* Layout */
+    display: flex;
+    flex-direction: column;
+    align-items: stretch;
+    justify-content: stretch;
+    gap: var(--gap);
+
+    /* Visual */
+    color: var(--primary-font-color);
+}

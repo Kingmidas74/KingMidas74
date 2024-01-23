@@ -1,0 +1,7 @@
+<ul class="cloud">
+  {% for item in items %}
+  <li>
+    <a href="#" style="--size: {{ item.weight }}">{{ item.title }}</a>
+  </li>
+  {% endfor %}
+</ul>

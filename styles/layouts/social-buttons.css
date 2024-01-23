@@ -1,0 +1,18 @@
+.social-buttons {
+
+  grid-area: social;
+
+  position: sticky;
+  bottom: var(--gap);
+  display: flex;
+  z-index: 1000;
+  margin-top: var(--gap);
+}
+
+@container body (width <= 600px) {
+    .social-buttons {
+      position: sticky;
+      bottom: var(--gap);
+      display: flex;
+    }
+  }

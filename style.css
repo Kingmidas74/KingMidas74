@@ -1,0 +1,41 @@
+@import "./styles/colors.css";
+@import "./styles/default.css";
+@import "./styles/layouts/main.css";
+@import "./styles/layouts/header.css";
+@import "./styles/layouts/footer.css";
+@import "./styles/layouts/portfolio.css";
+@import "./styles/layouts/skills.css";
+@import "./styles/layouts/statistic.css";
+@import "./styles/layouts/about.css";
+@import "./styles/layouts/social-buttons.css";
+
+#mode-switcher {
+  position: absolute;
+  top: 0;
+  right: 0;
+
+  width: fit-content;
+  height: fit-content;
+
+  z-index: 1;
+}
+
+html {
+  scroll-snap-type: y mandatory;
+  font-family: var(--font-family);
+}
+
+:root {
+  --width-breakpoint: 600px; /* see container query */
+}
+body[data-mode="work"] *[data-mode="life"] {
+  display: none;
+}
+
+body[data-mode="life"] *[data-mode="work"] {
+  display: none;
+}
+
+body *[data-mode="pdf"] {
+  display: none;
+}
